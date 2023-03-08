@@ -1,0 +1,3 @@
+to check whether the reacthas issue in loading u can put something
+in the root element .if there will be an issue in loading the react that 
+content will be shown.

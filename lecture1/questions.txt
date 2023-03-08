@@ -1,0 +1,190 @@
+// Extensions for React developer daily use
+// Better comments
+// Bracket pair colorization toggler
+// ES7+ React/Redux/React-Native snippets
+// GitLens
+// prettier
+// vscode-icons
+
+// what does emmet do ?
+Emmet is a free add-on for your text editor. It allows you to type shortcuts that are then expanded into
+full pieces of code. By using Emmet, developers type less, they save both on keystrokes and time.
+
+Elements=>
+You can use elements’ names like div or p to generate HTML tags. Emmet doesn’t have a predefined set of 
+available tag names, you can write any word and transform it into a tag: div → <div></div>, 
+foo → <foo></foo> and so on.
+----------------------------------------------------------------------------------------------------------------------------------------------
+emmet abbriviation "div>ul>li" on press tab
+
+will generate 
+        <div>
+            <ul>
+                <li></li>
+            </ul>
+        </div>
+
+see more examples in index.html 
+or   
+//Please follow the below link for more information about emmet abbriviation
+// https://docs.emmet.io/abbreviations/syntax/
+ 
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+The technical difference between a framework and library lies in a term called inversion of control.
+
+When you use a library, you are in charge of the flow of the application.
+ You are choosing when and where to call the library. When you use a framework, the framework is in charge of the flow.
+  It provides some places for you to plug in your code, but it calls the code you plugged in as needed.
+
+example : jQuery and reactjs are  library , React-Native is framework
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+What is CDN? Why do we use it?
+A CDN is a network of servers that distributes content from an “origin” server
+ throughout the world by caching content close to where each end user is accessing 
+ the internet via a web-enabled device. The content they request is first stored on the origin server and is then replicated and stored elsewhere as needed.
+
+https://www.hostinger.com/tutorials/what-is-cdn#What_Is_a_CDN
+
+--------------------------------------------------------------------------------------------------------------------------------
+why react is called react ?
+Realizing that FBolt wouldn’t be a great name for the library when used on its own, Jordan Walke and Tom Occhino decided on a new name: “React.” After Tom sent out the diff to rename everything to React, Jordan commented:
+
+Jordan Walke: I might add for the sake of discussion, that many systems advertise some kind of
+reactivity, but they usually require that you set up some kind of point-to-point listeners and 
+won’t work on structured data. This API reacts to any state or property changes, and works with
+data of any form (as deeply structured as the graph itself) so I think the name is fitting.
+
+https://reactjs.org/blog/2016/09/28/our-first-50000-stars.html#fbolt-is-born
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+What is crossorigin in script tag?
+
+The crossorigin attribute is used on the script element to indicate that the script 
+should be loaded using CORS (Cross-Origin Resource Sharing). It is used to allow a web 
+page to load resources that come from a different origin (a different domain, protocol,
+or port) than the web page.
+
+By default, web browsers block web pages from making requests to a different origin than
+the one that served the web page. This is a security measure to prevent malicious web 
+pages from making requests to other sites on behalf of the user. However, there may be
+legitimate reasons for a web page to need to request resources from another origin, 
+such as when loading a script from a third-party CDN (Content Delivery Network).
+
+The crossorigin attribute allows the server hosting the script to opt-in to allowing the
+web page to request the script by including the appropriate CORS headers in its response.
+
+The attribute takes one of two values:
+anonymous: This indicates that the server hosting the script allows the web page to request
+it, but does not send any credentials (cookies, HTTP authentication, etc.) with the request. 
+This is appropriate for most cases where the script does not need to access any sensitive 
+information on the server.
+
+use-credentials: This indicates that the server hosting the script allows the web page to 
+request it, and sends credentials (such as cookies or HTTP authentication) with the request. 
+This is appropriate for cases where the script needs to access sensitive information on the 
+server that is protected by authentication.
+
+Here is an example of how to use the crossorigin attribute in a script element:
+<script src="https://example.com/script.js" crossorigin="anonymous"></script>
+Note that using the crossorigin attribute does not guarantee that the script will be 
+loaded successfully. The server hosting the script must also include the appropriate
+ CORS headers in its response for the script to be loaded.
+
+-------------------------------------------------------------------------------------------
+what is Cross-Origin Resource Sharing ?
+Cross-Origin Resource Sharing (CORS) is a mechanism that allows a web page to make requests 
+to a different origin (a different domain, protocol, or port) than the one that served
+the web page. By default, web browsers block web pages from making requests to a different
+origin than the one that served the web page, as a security measure to prevent malicious
+web pages from making requests to other sites on behalf of the user.
+However, there may be legitimate reasons for a web page to need to request resources 
+from another origin, such as when loading a script from a third-party CDN (Content Delivery Network).
+CORS allows the server hosting the resource (e.g., the script) to opt-in to allowing the
+web page to request the resource by including the appropriate CORS headers in its response.
+
+
+To enable CORS, the server hosting the resource must include the following HTTP headers in its response:
+
+Access-Control-Allow-Origin: This specifies which origins are allowed to request the 
+resource. It can be set to * to allow any origin, or to a specific origin (e.g.,
+ https://example.com).
+Access-Control-Allow-Methods: This specifies which HTTP methods are allowed when 
+requesting the resource.
+Access-Control-Allow-Headers: This specifies which HTTP headers are allowed when 
+requesting the resource.
+Access-Control-Allow-Credentials: This specifies whether credentials (such as cookies 
+or HTTP authentication) are allowed to be sent with the request.
+
+Here is an example of how these headers might be set on the server:
+
+Access-Control-Allow-Origin: https://example.com
+Access-Control-Allow-Methods: GET, POST, PUT
+Access-Control-Allow-Headers: X-Custom-Header
+Access-Control-Allow-Credentials: true
+When the web page makes a request for a resource from a different origin, the browser 
+sends a "preflight" request to the server to check if the server will allow the actual
+request to be made. The preflight request includes an Origin header, which specifies
+the origin of the web page, and an Access-Control-Request-Method header, which 
+specifies the HTTP method that will be used in the actual request. The server can 
+then respond to the preflight request with the appropriate CORS headers to indicate
+whether it will allow the actual request to be made. If the server does not include 
+the appropriate CORS headers in its response, the browser will block the request.
+
+------------------------------------------------------------------------------------------
+what is the diffrence between react and react-dom?
+
+ReactDOM is responsible for translating the virtual DOM into actual DOM updates, and 
+for rendering React components to the DOM. It provides functions such as render() and
+unmountComponentAtNode() that allow you to render React components to the DOM and 
+unmount them when they are no longer needed.
+
+React allows you to define UI components as declarative functions, and provides a 
+virtual DOM (Virtual Document Object Model) to optimize the rendering of those 
+components
+
+---------------------------------------------------------------------------------------------
+
+What is difference between react.development.js and react.production.js files via CDN?
+
+The react.development.js and react.production.js files are different versions of the
+React library that are intended for use in different environments.The react.development.js 
+file is the development version of the React library. It includes extra debugging information 
+and helpful warnings that are useful when developing and testing your application. It is not 
+optimized for production use, as it is larger in size and has a slower performance than the 
+production version.The react.production.js file is the production version of the React library. 
+It is optimized for performance and size, and does not include the extra debugging information 
+and warnings that are present in the development version. It is intended for use in a live 
+production environment, where performance is more important than debugging information.
+When using the React library via a CDN, you should use the react.production.js file in your 
+production environment and the react.development.js file in your development environment. 
+This will ensure that you are using the appropriate version of the library for your needs.
+To use the React library via CDN, you can include the following script tag in your HTML file:
+<script src="https://unpkg.com/react@17.0.1/umd/react.production.min.js"></script>
+Replace react@17.0.1 with the version of React that you want to use. You can also use the 
+development version by replacing react.production.min.js with react.development.js.
+
+
+What is async and defer?
+
+async and defer are HTML attributes that can be used on the script element to indicate
+how a script should be loaded and executed by the browser.
+The async attribute tells the browser to load and execute the script asynchronously, 
+which means that the browser can continue to parse and render the rest of the page
+while the script is being downloaded. This can improve the performance of the page, 
+as the browser does not have to wait for the script to be downloaded before rendering 
+the rest of the page. However, it also means that the script may be executed at any 
+time after it has been downloaded, and the order in which multiple async scripts are 
+executed is not guaranteed.
+The defer attribute tells the browser to load the script and execute it after the page 
+has finished parsing. This can also improve the performance of the page, as the browser
+does not have to wait for the script to be downloaded and parsed before rendering the
+rest of the page. The defer attribute also guarantees that the script will be executed 
+in the order in which it appears in the HTML, which can be important if the scripts 
+depend on each other or if the order of execution matters.
+
+Here is an example of how to use the async and defer attributes in a script element:
+<script src="script.js" async></script>
+<script src="script.js" defer></script>
+Note that the async and defer attributes are only supported by modern browsers, and may not work in older browsers. If you need to support older browsers, you can use a script loader library such as RequireJS to load and execute scripts asynchronously.
